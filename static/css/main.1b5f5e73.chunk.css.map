@@ -1,1 +1,0 @@
-{"version":3,"sources":["App.css"],"names":[],"mappings":"AAAA,MACE,qFAA4D,CAC5D,wBAAyB,CACzB,qBAAsB,CACtB,mBAAoB,CACpB,qBACF","file":"main.1b5f5e73.chunk.css","sourcesContent":[".body {\n  background: url(portfolio.jpg) no-repeat center center fixed;\n  -webkit-background: cover;\n  -moz-background: cover;\n  -o-background: cover;\n  background-size: cover;\n}\n"]}
