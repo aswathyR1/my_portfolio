@@ -4,4 +4,5 @@
   -moz-background: cover;
   -o-background: cover;
   background-size: cover;
+  height: 100vh;
 }

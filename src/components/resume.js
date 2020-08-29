@@ -127,8 +127,7 @@ const Resume = () => {
               Envestnet Asset Management
             </Typography>
             <Typography variant="subtitle1" align="center">
-              sdfghjktyuiofghjklhfidurrhrufkfhvgfbfkfiehdiflfndgbduewlaswathy is
-              a really good person.
+              Hello
             </Typography>
           </Box>
         </Box>
@@ -144,8 +143,7 @@ const Resume = () => {
               Electronics and Communication Engineering
             </Typography>
             <Typography variant="subtitle1" align="center">
-              sdfghjktyuiofghjklhfidurrhrufkfhvgfbfkfiehdiflfndgbduewlaswathy is
-              a really good person.
+              Hey
             </Typography>
           </Box>
         </Box>

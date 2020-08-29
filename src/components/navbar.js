@@ -24,7 +24,6 @@ import {
 } from "@material-ui/icons";
 import { makeStyles } from "@material-ui/core/styles";
 import girl from "../girl.png";
-
 const useStyles = makeStyles({
   menu: {
     width: 250,
@@ -66,6 +65,7 @@ const NavBar = () => {
   const [isSliderVisble, setSliderVisibility] = useState(false);
   const toggleSlider = () => setSliderVisibility(!isSliderVisble);
 
+
   const sideList = () => (
     <Box className={classes.menu} component="div" onClick={toggleSlider}>
       <Avatar className={classes.avatar} src={girl} alt="Aswathy" />
@@ -88,15 +88,18 @@ const NavBar = () => {
     <>
       <Box component="nav">
         <AppBar position="static" style={{ background: "#222" }}>
-          <Toolbar>
-            <IconButton onClick={toggleSlider}>
+          <Toolbar style={{display:"flex",justifyContent:"space-between"}}>
+            <IconButton component={Link} to="/">
               <ArrowBack style={{ color: "#fff" }} />
             </IconButton>
+            <IconButton onClick={toggleSlider}>
+              <Menu style={{ color: "#fff"}} />
+            </IconButton>
 
-            <Typography variant="h4" style={{ color: "tan" }}>
+            {/* <Typography variant="h4" style={{ color: "tan" }}>
               {" "}
               Portfolio
-            </Typography>
+            </Typography> */}
             <MobilRightMenuSlider open={isSliderVisble} anchor="right">
               {sideList()}
             </MobilRightMenuSlider>

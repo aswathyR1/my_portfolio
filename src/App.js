@@ -4,6 +4,7 @@ import Home from "./components/index";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import "./App.css";
 import Resume from "./components/resume";
+import Contacts from "./components/contacts";
 class App extends Component {
   render() {
     return (
@@ -13,7 +14,7 @@ class App extends Component {
 
         <Route path="/" component={Home} exact />
         <Route path="/resume" component={Resume} />
-        {/* <Route path="/contacts" component={Contacts} /> */}
+        <Route path="/contacts" component={Contacts} />
       </div>
       </Router>
     );
