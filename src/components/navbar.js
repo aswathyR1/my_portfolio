@@ -1,27 +1,109 @@
-import React from 'react';
-import{Box,AppBar,Toolbar,IconButton,Typography,Avatar} from '@material-ui/core';
-import{ArrowBack} from '@material-ui/icons';
+import React, { useState } from "react";
+import MobilRightMenuSlider from "@material-ui/core/Drawer";
+import { Link } from "react-router-dom";
 
-import girl from '../girl.png'; 
+import {
+  Box,
+  AppBar,
+  Toolbar,
+  IconButton,
+  Avatar,
+  Typography,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+} from "@material-ui/core";
+import {
+  ArrowBack,
+  Menu,
+  Home,
+  Apps,
+  AssignmentInd,
+  ContactMail,
+} from "@material-ui/icons";
+import { makeStyles } from "@material-ui/core/styles";
+import girl from "../girl.png";
 
-const NavBar=()=>(
+const useStyles = makeStyles({
+  menu: {
+    width: 250,
+    background: "#511",
+    height: "100%",
+  },
+  avatar: {
+    display: "block",
+    marginLeft: "83px",
+    height: "83px",
+    width: "83px",
+    marginTop: "20px",
+  },
+  menulist: {
+    padding: 30,
+    color: "tan",
+  },
+});
+const MenuList = [
+  {
+    icon: <Home />,
+    iconText: "Home",
+    itemPath: "/",
+  },
+  {
+    icon: <AssignmentInd />,
+    iconText: "Resume",
+    itemPath: "/resume",
+  },
+  {
+    icon: <ContactMail />,
+    iconText: "Contact",
+    itemPath: "/contacts",
+  },
+];
+
+const NavBar = () => {
+  const classes = useStyles();
+  const [isSliderVisble, setSliderVisibility] = useState(false);
+  const toggleSlider = () => setSliderVisibility(!isSliderVisble);
+
+  const sideList = () => (
+    <Box className={classes.menu} component="div" onClick={toggleSlider}>
+      <Avatar className={classes.avatar} src={girl} alt="Aswathy" />
+      <List>
+        {MenuList.map((menu, key) => (
+          <ListItem button key={key} component={Link} to={menu.itemPath}>
+            <ListItemIcon className={classes.menulist}>
+              {menu.icon}
+            </ListItemIcon>
+            <ListItemText
+              className={classes.menulist}
+              primary={menu.iconText}
+            />
+          </ListItem>
+        ))}
+      </List>
+    </Box>
+  );
+  return (
     <>
-    <Box component="div">
-        <Avatar src={girl} alt="Aswathy"/>
-    </Box>
-    <Box component="nav">
-        <AppBar position="fixed" style={{background:'#222'}}>
-            <Toolbar>
-                <ArrowBack style={{color:'#fff'}}/>
-              
-                <IconButton/>
-                <Typography variant="h5" color="primary">Portfolio</Typography>
-            </Toolbar>
+      <Box component="nav">
+        <AppBar position="static" style={{ background: "#222" }}>
+          <Toolbar>
+            <IconButton onClick={toggleSlider}>
+              <ArrowBack style={{ color: "#fff" }} />
+            </IconButton>
+
+            <Typography variant="h4" style={{ color: "tan" }}>
+              {" "}
+              Portfolio
+            </Typography>
+            <MobilRightMenuSlider open={isSliderVisble} anchor="right">
+              {sideList()}
+            </MobilRightMenuSlider>
+          </Toolbar>
         </AppBar>
-
-        
-    </Box>
+      </Box>
     </>
-)
-
+  );
+};
 export default NavBar;

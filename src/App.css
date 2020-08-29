@@ -1,5 +1,7 @@
-.app{
-  margin:50px;
-  
+.body {
+  background: url(portfolio.jpg) no-repeat center center fixed;
+  -webkit-background: cover;
+  -moz-background: cover;
+  -o-background: cover;
+  background-size: cover;
 }
-
